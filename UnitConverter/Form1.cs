@@ -1,0 +1,87 @@
+namespace UnitConverter
+{
+    public partial class frmConversionTable : Form
+    {
+        public frmConversionTable()
+        {
+            InitializeComponent();
+        }//end frmConversionTable
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }//end radioButton1
+
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+            double inputValue;
+            if (!double.TryParse(txtBoxInput.Text, out inputValue))
+            {
+                lblResults.Text = "Please enter a valid Number.";
+                return;
+            }//end inputValue
+
+            else if (rdoMeterToFeet.Checked)
+            {
+                lblResults.Text = $"{inputValue} meters is {(inputValue * 3.28084):F2} feet.";
+            }//end rdoMeterToFeet
+
+            else if (rdoFeetToMeters.Checked)
+            {
+                lblResults.Text = $"{inputValue} feet is {(inputValue / 3.28084):F2}meters.";
+            }//end rdoFeetToMeters
+
+            else if (rdoCelciusToFahrenheit.Checked)
+            {
+                lblResults.Text = $"{inputValue} °C is {(inputValue * 9 / 5 + 32):F2} °F.";
+            }//end rdoCelciusToFahrenheit
+
+            else if (rdoFahrenehitToCelcius.Checked)
+            {
+                lblResults.Text = $"{inputValue} °F is {((inputValue - 32) * 5 / 9):F2} °C.";
+            }//end rdoFahrenehitToCelcius
+
+            else if (rdoKilometersToMiles.Checked)
+            {
+                lblResults.Text = $"{inputValue} kilometers is {(inputValue * 0.621371):F2} miles. ";
+            }//end rdoKilometersToMiles
+
+            else if (rdoMilesToKilometers.Checked)
+            {
+                lblResults.Text = $"{inputValue} miles is {(inputValue / 0621371):F2} kilometer.";
+            }//end rdoMilesToKilometers
+
+            else if (rdoKilogramToPounds.Checked)
+            {
+                lblResults.Text = $"{inputValue} kilograms is {(inputValue * 2.20462):F2} pounds.";
+            }//end rdoKilogramToPounds
+
+            else if (rdoPoundsToKilograms.Checked)
+            {
+                lblResults.Text = $"{inputValue} pounds is {(inputValue / 2.20462):F2} kilograms.";
+            }//end rdoPoundsToKilograms
+
+            else if (rdoGramsToOunces.Checked)
+            {
+                lblResults.Text = $"{inputValue} grams is {(inputValue / 28.3495):F2} ounces.";
+            }//end rdoGramsToOunces
+
+            else if (rdoOuncesToGrams.Checked)
+            {
+                lblResults.Text = $"{inputValue} ounces is {(inputValue * 28.3495):F2} grams.";
+            }//end rdoOuncesToGrams
+
+            else
+            {
+                lblResults.Text = "Please select a conversion type.";
+            }//end else 
+
+        }//end btnConvert 
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }//end textbox1
+    }//end form
+
+}//end namespace
